@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        $this->loadMigrationsFrom([
+            database_path('migrations/auth'),
+            database_path('migrations/students'),
+            database_path('migrations/parents'),
+            database_path('migrations/academic'),
+            database_path('migrations/enrollments'),
+            database_path('migrations/attendance'),
+            database_path('migrations/evaluations'),
+            database_path('migrations/observations'),
+        ]);
     }
 
     /**

@@ -25,6 +25,10 @@ class PermissionSeeder extends Seeder
             'manage_users',
             'manage_roles',
             'manage_permissions',
+            'manage_academic_structure',
+            'manage_enrollments',
+            'manage_periods',
+            'manage_grade_types',
             'create_evaluations',
             'edit_evaluations',
             'delete_evaluations',
@@ -32,6 +36,8 @@ class PermissionSeeder extends Seeder
             'take_attendance',
             'view_attendance',
             'view_grades',
+            'view_final_grades',
+            'create_observations',
             'view_observations',
         ];
         /**

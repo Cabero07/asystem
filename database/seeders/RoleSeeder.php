@@ -24,17 +24,17 @@ class RoleSeeder extends Seeder
          * permissions are available in the database for use in the application.
          */
         $admin = Role::create([
-            'name' => 'admin',
+            'name' => 'Admin',
             'description' => 'Administrador'
         ]);
 
         $teacher = Role::create([
-            'name' => 'teacher',
+            'name' => 'Teacher',
             'description' => 'Profesor'
         ]);
 
         $parent = Role::create([
-            'name' => 'parent',
+            'name' => 'Parent',
             'description' => 'Padre'
         ]);
         $admin->permissions()->sync(Permission::all());

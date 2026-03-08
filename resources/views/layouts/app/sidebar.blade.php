@@ -9,15 +9,54 @@
                 <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
-
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </flux:sidebar.item>
-                </flux:sidebar.group>
+                <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                    {{ __('Dashboard') }}
+                </flux:sidebar.item>
             </flux:sidebar.nav>
+            @can('manage_system')
+                <flux:sidebar.nav>
+                    <flux:sidebar.group :heading="__('Manage System')" class="grid">
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Usuarios') }}
+                        </flux:sidebar.item>
 
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Roles') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Permisos') }}
+                        </flux:sidebar.item>
+                    </flux:sidebar.group>
+                </flux:sidebar.nav>
+            @endcan
+            @can('manage_academic_structure')
+                <flux:sidebar.nav>
+                    <flux:sidebar.group :heading="__('Academic')" class="grid">
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Año Escolar') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Grados') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Grupos') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Asignaturas') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Profesores') }}
+                        </flux:sidebar.item>
+
+                    </flux:sidebar.group>
+                </flux:sidebar.nav>
+            @endcan
             <flux:spacer />
 
             <flux:sidebar.nav>
